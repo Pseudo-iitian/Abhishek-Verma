@@ -347,7 +347,7 @@ export function Contact() {
               🐙 GitHub (Pseudo-iitian) ↗
             </a>
             <a
-              href={`/${profile.resume}`}
+              href={`./${profile.resume}`}
               target="_blank"
               rel="noreferrer"
               download="Abhishek_Verma_Resume.pdf"

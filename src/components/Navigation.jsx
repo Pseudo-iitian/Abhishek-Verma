@@ -53,7 +53,7 @@ export default function Navigation() {
             ))}
             <a
               className="btn btn-outline nav-cta"
-              href={`/${profile.resume}`}
+              href={`./${profile.resume}`}
               target="_blank"
               rel="noreferrer"
               download="Abhishek_Verma_Resume.pdf"

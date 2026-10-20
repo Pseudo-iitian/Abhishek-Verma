@@ -60,7 +60,7 @@ export default function Hero() {
           </a>
           <a
             className="btn btn-emerald"
-            href={`/${profile.resume}`}
+            href={`./${profile.resume}`}
             target="_blank"
             rel="noreferrer"
             download="Abhishek_Verma_Resume.pdf"

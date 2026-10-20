@@ -1,102 +1,86 @@
-# Portfolio v2 — Interactive 3D Developer Portfolio
+# Abhishek Verma — 3D Interactive Portfolio
 
-A single-page developer portfolio built around a live WebGL scene. React 19 renders
-the UI, React Three Fiber drives the 3D layer, and GSAP ScrollTrigger ties camera
-movement and section reveals to scroll position.
+An interactive, high-performance 3D developer portfolio showcasing engineering experience in distributed backend architectures, high-concurrency fintech microservices, and modern web systems.
 
-**Live:** [jawadrizvi.com/v2](https://jawadrizvi.com/v2)
+Built with **React 19**, **Three.js** / **React Three Fiber**, and **GSAP ScrollTrigger**.
+
+🌐 **Live Website:** [pseudo-iitian.github.io/Abhishek-Verma](https://pseudo-iitian.github.io/Abhishek-Verma/)
 
 ---
 
-## Why this exists
+## 🚀 Overview
 
-Most portfolio templates are static. The goal here was to make scrolling itself the
-interaction — the 3D scene reacts continuously to scroll progress rather than
-playing a canned animation, while staying accessible and fast on mobile.
+- **Interactive 3D Cryptographic Ledger Core & Microservice Topology**: Real-time WebGL visualisations reflecting distributed backend systems, event pipelines, and ledger nodes.
+- **Scroll-Linked Camera & Scene Dynamics**: GSAP ScrollTrigger seamlessly synchronizes the 3D world with content progression.
+- **Production-Ready Fallbacks**: Automatic WebGL detection and high-performance 2.5D fallback ensure zero crashes on mobile or low-power hardware.
+- **Modular Data-Driven Architecture**: All portfolio data (experience, education, skills, projects, contact) is organized cleanly in `src/data/`.
 
-## Tech stack
+---
 
-| Layer | Choice |
+## 🛠️ Tech Stack
+
+| Layer | Technology |
 |---|---|
-| Framework | React 19 |
-| Build tool | Vite 8 |
-| 3D rendering | Three.js + `@react-three/fiber` + `@react-three/drei` |
-| Animation | GSAP 3 (ScrollTrigger) |
-| Linting | ESLint 10 |
+| **Frontend Framework** | React 19 |
+| **Build System** | Vite |
+| **3D Engine** | Three.js + `@react-three/fiber` + `@react-three/drei` |
+| **Motion & Scroll** | GSAP 3 (ScrollTrigger) |
+| **Styling** | Modern CSS3 with responsive glassmorphism & CSS grid |
+| **Deployment** | GitHub Pages via GitHub Actions |
 
-## Features
+---
 
-- Scroll-linked 3D scene — camera and geometry respond to scroll progress
-- Reusable `useReveal` hook for staggered section entrance animations
-- Content driven from a single `src/data.js` file, so the portfolio can be
-  re-skinned for a different person without touching components
-- Responsive layout with a reduced-motion fallback
-- Zero backend — deploys to any static host
+## 💻 Getting Started
 
-## Getting started
+### Prerequisites
 
-**Requirements:** Node.js 18+ and npm.
+- Node.js 18+
+- npm 9+
+
+### Installation & Local Run
 
 ```bash
-git clone https://github.com/jawadhaider0024/jawad-portfolio-v2.git
-cd jawad-portfolio-v2
+# Clone the repository
+git clone https://github.com/Pseudo-iitian/Abhishek-Verma.git
+cd Abhishek-Verma
+
+# Install dependencies
 npm install
+
+# Start development server
 npm run dev
 ```
 
-Open http://localhost:5173.
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-### Available scripts
+### Available Scripts
 
-| Command | What it does |
+| Command | Description |
 |---|---|
-| `npm run dev` | Start the Vite dev server with HMR |
-| `npm run build` | Production build into `dist/` |
-| `npm run preview` | Serve the production build locally |
-| `npm run lint` | Run ESLint across the project |
+| `npm run dev` | Start Vite dev server with Hot Module Replacement (HMR) |
+| `npm run build` | Build optimized production bundle into `dist/` |
+| `npm run preview` | Locally preview production build |
+| `npm run lint` | Run ESLint check |
 
-## Project structure
+---
+
+## 📂 Project Structure
 
 ```
-src/
-├── main.jsx              # React entry point
-├── App.jsx               # Page composition and scroll orchestration
-├── data.js               # ALL portfolio content — edit this first
-├── useReveal.js          # Scroll-reveal animation hook
-├── components/
-│   ├── Scene3D.jsx       # React Three Fiber canvas and scroll-linked camera
-│   ├── Hero.jsx          # Landing section overlaying the 3D canvas
-│   ├── Nav.jsx           # Navigation
-│   └── Sections.jsx      # About / work / contact sections
-└── assets/               # Images and icons
+├── public/                 # Static assets (resume.pdf, icons, favicon)
+├── src/
+│   ├── components/         # UI components (Hero, Nav, Sections, Scene3D, Fallback2D)
+│   ├── data/               # Portfolio content (profile, experience, education, projects, skills)
+│   ├── App.jsx             # Main application layout & scroll orchestration
+│   ├── index.css           # Design tokens, typography, glassmorphism styles
+│   └── main.jsx            # React root
+├── .github/workflows/      # Automated GitHub Actions deployment pipeline
+├── vite.config.js          # Vite build & asset base configuration
+└── package.json
 ```
 
-## Making it your own
+---
 
-1. Edit `src/data.js` — name, role, project list, and contact links all live there.
-2. Swap `src/assets/hero.png` for your own image.
-3. Adjust the palette in `src/index.css` (CSS custom properties at the top).
-4. Tune the 3D scene in `src/components/Scene3D.jsx` — geometry, materials, and the
-   scroll-to-camera mapping are all in that one file.
+## 📄 License
 
-## Deployment
-
-`npm run build` produces a static `dist/` folder. Upload it to any static host
-(Netlify, Vercel, GitHub Pages, or plain nginx/Apache).
-
-If you deploy to a subpath rather than a domain root, set the base in
-`vite.config.js`:
-
-```js
-export default defineConfig({ base: '/v2/', /* ... */ })
-```
-
-## Contributing
-
-Issues and pull requests are welcome — particularly around performance on
-low-end mobile GPUs and accessibility improvements. Fork it freely for your own
-portfolio; attribution is appreciated but not required.
-
-## License
-
-MIT — see [LICENSE](LICENSE).
+MIT © [Abhishek Verma](https://github.com/Pseudo-iitian)
