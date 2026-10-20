@@ -10,17 +10,18 @@ import ErrorBoundary from './ErrorBoundary'
 gsap.registerPlugin(ScrollTrigger)
 
 // Camera waypoints moving through the distributed fintech architecture
+// Coordinated to keep the 3D visuals on the right/periphery, allowing text to remain 100% readable
 const CAMERA_WAYPOINTS = [
-  // 1. Overview: Hero & Core Ledger
-  { pos: new THREE.Vector3(0, 0, 7.5), look: new THREE.Vector3(0, 0, 0) },
+  // 1. Overview: Hero
+  { pos: new THREE.Vector3(0, 0.2, 8.0), look: new THREE.Vector3(0.8, 0, 0) },
   // 2. Trajectory: Rapipay Microservices Panning
-  { pos: new THREE.Vector3(-2.8, 1.4, 6.2), look: new THREE.Vector3(-0.5, 0.2, 0) },
+  { pos: new THREE.Vector3(-0.5, 0.8, 7.2), look: new THREE.Vector3(1.2, 0.1, 0) },
   // 3. Stack: Distributed Cluster & Database
-  { pos: new THREE.Vector3(2.5, -1.2, 5.8), look: new THREE.Vector3(0.4, -0.2, 0) },
+  { pos: new THREE.Vector3(0.5, -0.6, 6.8), look: new THREE.Vector3(1.4, -0.2, 0) },
   // 4. Case Studies: Systems Shipped (LMS, Digio, DB tuning)
-  { pos: new THREE.Vector3(-1.8, -2.2, 6.0), look: new THREE.Vector3(0, -0.6, 0) },
+  { pos: new THREE.Vector3(-0.4, -1.2, 7.0), look: new THREE.Vector3(1.0, -0.4, 0) },
   // 5. Connect: Panoramic Terminal View
-  { pos: new THREE.Vector3(0, 2.8, 8.2), look: new THREE.Vector3(0, 0, 0) },
+  { pos: new THREE.Vector3(0, 1.8, 9.0), look: new THREE.Vector3(0.5, 0, 0) },
 ]
 
 function isWebGLSupported() {
@@ -68,9 +69,9 @@ function CameraController({ mouseRef }) {
     const targetPos = new THREE.Vector3().lerpVectors(wpA.pos, wpB.pos, segmentProgress)
     const targetLook = new THREE.Vector3().lerpVectors(wpA.look, wpB.look, segmentProgress)
 
-    // Interactive mouse parallax
-    const mx = (mouseRef.current.x || 0) * 0.6
-    const my = (mouseRef.current.y || 0) * 0.4
+    // Interactive subtle mouse parallax
+    const mx = (mouseRef.current.x || 0) * 0.4
+    const my = (mouseRef.current.y || 0) * 0.25
     targetPos.x += mx
     targetPos.y += my
 
@@ -110,11 +111,11 @@ export default function Scene3D() {
           inset: 0,
           zIndex: 0,
           pointerEvents: 'none',
-          background: 'radial-gradient(ellipse at 50% 30%, #081224 0%, #030712 70%, #010308 100%)',
+          background: 'radial-gradient(ellipse at 75% 35%, #0b192e 0%, #030712 65%, #010308 100%)',
         }}
       >
         <Canvas
-          camera={{ position: [0, 0, 7.5], fov: 48, near: 0.1, far: 100 }}
+          camera={{ position: [0, 0.2, 8.0], fov: 46, near: 0.1, far: 100 }}
           dpr={[1, 1.5]}
           gl={{
             antialias: true,

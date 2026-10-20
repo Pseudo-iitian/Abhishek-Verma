@@ -4,33 +4,43 @@ import ProjectCard from './ProjectCard'
 export function About() {
   return (
     <section className="section" id="about">
-      <div className="wrap about-grid">
-        <div className="reveal">
-          <p className="eyebrow">
-            <span className="step-badge">01</span> Architecture &amp; Domain Focus
-          </p>
-          <h2 className="section-title">
-            Engineering high-throughput, <span className="gradient-text-cyan">fault-tolerant financial backends</span>.
-          </h2>
-        </div>
-        <div className="reveal about-body">
-          <p>{profile.summary}</p>
-          <p className="about-current">
-            Currently advancing core lending and ledger systems at{' '}
-            <strong>{profile.company}</strong> in Noida, designing asynchronous Kafka event streams,
-            slashing AWS writer database loads from 99% to 5–20%, and automating RBI-aligned lending rules.
-          </p>
-          <div className="about-edu">
-            {profile.education.map((e) => (
-              <div key={e.degree} className="edu-row">
-                <span className="edu-year">{e.period}</span>
-                <span>
-                  <strong>{e.degree}</strong>
-                  <br />
-                  <em>{e.institution} · {e.grade}</em>
-                </span>
+      <div className="wrap">
+        <div className="about-panel card reveal">
+          <div className="about-grid">
+            <div className="about-left">
+              <p className="eyebrow">
+                <span className="step-badge">01</span> Architecture &amp; Domain Focus
+              </p>
+              <h2 className="section-title">
+                Engineering high-throughput, <span className="gradient-text-cyan">fault-tolerant financial backends</span>.
+              </h2>
+              <div className="about-highlights-strip">
+                <div className="about-chip">⚡ Sub-30ms Loan Calculations</div>
+                <div className="about-chip">🛡️ 100% RBI NPA Rule Matching</div>
+                <div className="about-chip">📉 99% → 5% DB Writer Load</div>
               </div>
-            ))}
+            </div>
+
+            <div className="about-body">
+              <p className="about-lead">{profile.summary}</p>
+              <p className="about-current">
+                Currently advancing core lending and ledger systems at{' '}
+                <strong className="text-highlight">{profile.company}</strong> in Noida, designing asynchronous Kafka event streams,
+                slashing AWS writer database loads from 99% to 5–20%, and automating RBI-aligned lending rules.
+              </p>
+              <div className="about-edu">
+                {profile.education.map((e) => (
+                  <div key={e.degree} className="edu-row">
+                    <span className="edu-year">{e.period}</span>
+                    <span>
+                      <strong>{e.degree}</strong>
+                      <br />
+                      <em>{e.institution} · {e.grade}</em>
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -42,7 +52,7 @@ export function Experience() {
   return (
     <section className="section" id="experience">
       <div className="wrap">
-        <div className="reveal section-head">
+        <div className="section-head-box card reveal">
           <p className="eyebrow">
             <span className="step-badge">02</span> Engineering Trajectory
           </p>
@@ -92,7 +102,7 @@ export function Skills() {
   return (
     <section className="section" id="skills">
       <div className="wrap">
-        <div className="reveal section-head">
+        <div className="section-head-box card reveal">
           <p className="eyebrow">
             <span className="step-badge">03</span> Technical Capabilities
           </p>
@@ -132,7 +142,7 @@ export function Projects() {
   return (
     <section className="section" id="projects">
       <div className="wrap">
-        <div className="reveal section-head">
+        <div className="section-head-box card reveal">
           <p className="eyebrow">
             <span className="step-badge">04</span> Systems Shipped
           </p>
@@ -155,46 +165,48 @@ export function Contact() {
   return (
     <section className="section contact" id="contact">
       <div className="wrap contact-inner reveal">
-        <p className="eyebrow">
-          <span className="step-badge">05</span> Terminal / Connect
-        </p>
-        <h2 className="contact-title">
-          Let's engineer scalable, resilient <span className="gradient-text-cyan">systems together.</span>
-        </h2>
-        <p className="section-lead" style={{ margin: '0 auto 2.4rem' }}>
-          Open for backend engineering roles, fintech architecture discussions, and distributed systems challenges.
-        </p>
+        <div className="contact-head-box card">
+          <p className="eyebrow">
+            <span className="step-badge">05</span> Terminal / Connect
+          </p>
+          <h2 className="contact-title">
+            Let's engineer scalable, resilient <span className="gradient-text-cyan">systems together.</span>
+          </h2>
+          <p className="section-lead" style={{ margin: '0 auto 2rem' }}>
+            Open for backend engineering roles, fintech architecture discussions, and distributed systems challenges.
+          </p>
 
-        <div className="contact-action-box card">
-          <div className="contact-avatar">AV</div>
-          <div className="contact-info">
-            <h3>{profile.name}</h3>
-            <p>{profile.roleSubtitle} · {profile.company}</p>
+          <div className="contact-action-box">
+            <div className="contact-avatar">AV</div>
+            <div className="contact-info">
+              <h3>{profile.name}</h3>
+              <p>{profile.roleSubtitle} · {profile.company}</p>
+            </div>
+            <a className="btn btn-emerald contact-mail-btn" href={`mailto:${profile.email}`}>
+              ✉ Send Email: {profile.email}
+            </a>
           </div>
-          <a className="btn btn-emerald contact-mail-btn" href={`mailto:${profile.email}`}>
-            ✉ Send Email: {profile.email}
-          </a>
-        </div>
 
-        <div className="contact-links">
-          <a href={`tel:${profile.phone.replace(/[^0-9+]/g, '')}`} className="contact-chip">
-            📞 {profile.phone}
-          </a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="contact-chip">
-            💼 LinkedIn Profile ↗
-          </a>
-          <a href={profile.github} target="_blank" rel="noreferrer" className="contact-chip">
-            🐙 GitHub (Pseudo-iitian) ↗
-          </a>
-          <a
-            href={`/${profile.resume}`}
-            target="_blank"
-            rel="noreferrer"
-            download="Abhishek_Verma_Resume.pdf"
-            className="contact-chip highlight"
-          >
-            📄 Download Official Résumé (PDF) ↓
-          </a>
+          <div className="contact-links">
+            <a href={`tel:${profile.phone.replace(/[^0-9+]/g, '')}`} className="contact-chip">
+              📞 {profile.phone}
+            </a>
+            <a href={profile.linkedin} target="_blank" rel="noreferrer" className="contact-chip">
+              💼 LinkedIn Profile ↗
+            </a>
+            <a href={profile.github} target="_blank" rel="noreferrer" className="contact-chip">
+              🐙 GitHub (Pseudo-iitian) ↗
+            </a>
+            <a
+              href={`/${profile.resume}`}
+              target="_blank"
+              rel="noreferrer"
+              download="Abhishek_Verma_Resume.pdf"
+              className="contact-chip highlight"
+            >
+              📄 Download Official Résumé (PDF) ↓
+            </a>
+          </div>
         </div>
 
         <footer className="footer">
