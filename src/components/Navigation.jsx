@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react'
 import { profile } from '../data'
 
 const navLinks = [
-  { label: 'Architecture', sub: '01', href: '#about' },
+  { label: 'About', sub: '01', href: '#about' },
   { label: 'Experience', sub: '02', href: '#experience' },
-  { label: 'Tech Stack', sub: '03', href: '#skills' },
-  { label: 'Systems Shipped', sub: '04', href: '#projects' },
-  { label: 'Contact', sub: '05', href: '#contact' },
+  { label: 'Education', sub: '03', href: '#education' },
+  { label: 'Skills', sub: '04', href: '#skills' },
+  { label: 'Projects', sub: '05', href: '#projects' },
+  { label: 'Contact', sub: '06', href: '#contact' },
 ]
 
 export default function Navigation() {
@@ -14,7 +15,7 @@ export default function Navigation() {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    const onScroll = () => setScrolled(window.scrollY > 30)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -22,7 +23,7 @@ export default function Navigation() {
   return (
     <header className={`nav ${scrolled ? 'nav-scrolled' : ''}`}>
       <div className="wrap nav-inner">
-        <a href="#top" className="nav-logo">
+        <a href="#top" className="nav-logo" onClick={() => setOpen(false)}>
           <span className="logo-initials">AV</span>
           <div className="logo-meta">
             <strong>{profile.name}</strong>
@@ -30,11 +31,13 @@ export default function Navigation() {
           </div>
         </a>
 
-        <div className="nav-status-badge">
+        {/* Status Badge (hidden on small mobile screens to prevent crowding) */}
+        <div className="nav-status-badge desktop-only">
           <span className="status-dot-pulse" />
           <span>Rapipay Fintech · Active</span>
         </div>
 
+        {/* Navigation Links (Desktop + Mobile Drawer) */}
         <nav className={`nav-links ${open ? 'open' : ''}`}>
           {navLinks.map((link) => (
             <a
@@ -53,13 +56,15 @@ export default function Navigation() {
             target="_blank"
             rel="noreferrer"
             download="Abhishek_Verma_Resume.pdf"
+            onClick={() => setOpen(false)}
           >
             Résumé (PDF) ↓
           </a>
         </nav>
 
+        {/* Hamburger button for mobile */}
         <button
-          className="nav-burger"
+          className={`nav-burger ${open ? 'open' : ''}`}
           onClick={() => setOpen((o) => !o)}
           aria-label="Toggle navigation menu"
         >

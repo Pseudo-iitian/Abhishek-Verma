@@ -12,17 +12,24 @@ export const profile = {
   linkedin: 'https://linkedin.com/in/1-abhishek-verma',
   github: 'https://github.com/Pseudo-iitian',
   resume: 'resume.pdf',
+  gmailUrl:
+    'https://mail.google.com/mail/?view=cm&fs=1&to=abhishek.verma.6561@gmail.com&su=Fintech%20Engineering%20Inquiry%20-%20Abhishek%20Verma&body=Hi%20Abhishek,%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20an%20engineering%20opportunity%20with%20you.%0A%0ABest%20regards,',
   tagline:
     'Architecting high-concurrency financial microservices, event-driven ledger engines, and ultra-low latency lending systems with Java 17, Spring Boot, Kafka, and PostgreSQL.',
   summary:
     'Software Engineer with deep experience in building scalable financial microservices in the lending domain. Skilled in Java, Spring Boot, REST APIs, Kafka, and PostgreSQL, with hands-on experience in Loan Management Systems (Apache Fineract) across the end-to-end loan lifecycle. Worked on collection and settlement posting using Amazon SQS, UPI/NACH integration, and a rule-based NPA engine. Improved AWS database performance, reducing writer DB utilization from 99% to 5–20%. Strong in event-driven architecture, system design, and distributed systems.',
   education: [
     {
-      degree: 'Bachelor of Technology in Computer Science',
+      degree: 'Bachelor of Technology in Computer Science and Engineering',
       institution: 'Abdul Kalam Technical University (KIET Group of Institutions)',
       location: 'Delhi-NCR, India',
       period: '11/2021 – 06/2025',
       grade: 'CGPA: 8.2 / 10.0',
+      highlights: [
+        'Specialization in Distributed Systems, Database Management Systems, and Object-Oriented Software Design.',
+        'Core coursework: Data Structures, Advanced Algorithms, Operating Systems, Computer Networks, and DBMS.',
+        'Academic projects in Machine Learning, Algorithmic Graph Optimization, and High-Throughput Web Services.',
+      ],
     },
   ],
 }

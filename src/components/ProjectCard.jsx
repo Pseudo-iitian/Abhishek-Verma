@@ -22,6 +22,9 @@ export default function ProjectCard({ project }) {
         </div>
 
         <div className="project-badge-strip">
+          {project.dateDisplay && (
+            <span className="date-pill">🗓️ {project.dateDisplay}</span>
+          )}
           <span className="category-pill">{project.category}</span>
           {project.badge && <span className="highlight-pill">{project.badge}</span>}
         </div>
@@ -71,7 +74,9 @@ export default function ProjectCard({ project }) {
           <div className="modal-card" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <div>
-                <span className="modal-tag">{project.systemNode} · {project.category}</span>
+                <span className="modal-tag">
+                  {project.systemNode} · {project.category} · {project.dateDisplay}
+                </span>
                 <h2>{project.title}</h2>
               </div>
               <button className="modal-close" onClick={() => setIsOpen(false)} aria-label="Close">
@@ -124,14 +129,16 @@ export default function ProjectCard({ project }) {
             </div>
 
             <div className="modal-footer">
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-primary"
-              >
-                Inspect Code on GitHub ↗
-              </a>
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-primary"
+                >
+                  Inspect Code on GitHub ↗
+                </a>
+              )}
               <button className="btn btn-ghost" onClick={() => setIsOpen(false)}>
                 Close
               </button>

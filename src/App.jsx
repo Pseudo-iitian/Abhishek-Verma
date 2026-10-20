@@ -1,7 +1,14 @@
 import { Suspense, lazy, useState, useEffect } from 'react'
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
-import { About, Experience, Skills, Projects, Contact } from './components/Sections'
+import {
+  About,
+  Experience,
+  Education,
+  Skills,
+  Projects,
+  Contact,
+} from './components/Sections'
 import { useReveal } from './hooks/useReveal'
 import ErrorBoundary from './components/ErrorBoundary'
 import FallbackFintechScene from './components/FallbackFintechScene'
@@ -69,6 +76,7 @@ export default function App() {
         <Hero />
         <About />
         <Experience />
+        <Education />
         <Skills />
         <Projects />
         <Contact />

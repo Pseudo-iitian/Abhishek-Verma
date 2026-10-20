@@ -9,18 +9,15 @@ import ErrorBoundary from './ErrorBoundary'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// Camera waypoints moving through the distributed fintech architecture
-// Coordinated to keep the 3D visuals on the right/periphery, allowing text to remain 100% readable
+// Camera waypoints smoothly tracking the systematic portfolio sections:
+// 1. Hero -> 2. About -> 3. Experience -> 4. Education -> 5. Skills -> 6. Projects -> 7. Contact
 const CAMERA_WAYPOINTS = [
-  // 1. Overview: Hero
   { pos: new THREE.Vector3(0, 0.2, 8.0), look: new THREE.Vector3(0.8, 0, 0) },
-  // 2. Trajectory: Rapipay Microservices Panning
-  { pos: new THREE.Vector3(-0.5, 0.8, 7.2), look: new THREE.Vector3(1.2, 0.1, 0) },
-  // 3. Stack: Distributed Cluster & Database
-  { pos: new THREE.Vector3(0.5, -0.6, 6.8), look: new THREE.Vector3(1.4, -0.2, 0) },
-  // 4. Case Studies: Systems Shipped (LMS, Digio, DB tuning)
+  { pos: new THREE.Vector3(-0.5, 0.6, 7.5), look: new THREE.Vector3(1.2, 0.1, 0) },
+  { pos: new THREE.Vector3(-0.8, 1.0, 7.2), look: new THREE.Vector3(1.4, 0.2, 0) },
+  { pos: new THREE.Vector3(0.2, 0.8, 7.0), look: new THREE.Vector3(1.3, 0.1, 0) },
+  { pos: new THREE.Vector3(0.6, -0.6, 6.8), look: new THREE.Vector3(1.4, -0.2, 0) },
   { pos: new THREE.Vector3(-0.4, -1.2, 7.0), look: new THREE.Vector3(1.0, -0.4, 0) },
-  // 5. Connect: Panoramic Terminal View
   { pos: new THREE.Vector3(0, 1.8, 9.0), look: new THREE.Vector3(0.5, 0, 0) },
 ]
 
