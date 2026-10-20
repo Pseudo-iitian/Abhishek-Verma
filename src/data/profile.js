@@ -3,7 +3,7 @@ export const profile = {
   name: 'Abhishek Verma',
   shortName: 'Abhishek',
   title: 'Software Engineer',
-  roleSubtitle: 'Fintech Backend Engineer · Java 17 & Distributed Systems',
+  roleSubtitle: 'Java Backend Engineer · Java 17 & Distributed Systems',
   company: 'Rapipay Fintech Private Limited',
   location: 'Noida, India',
   email: 'abhishek.verma.6561@gmail.com',

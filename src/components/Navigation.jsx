@@ -28,7 +28,7 @@ export default function Navigation() {
             <span className="logo-initials">AV</span>
             <div className="logo-meta">
               <strong>{profile.name}</strong>
-              <em>Fintech Backend Engineer</em>
+              <em>Java Backend Engineer</em>
             </div>
           </a>
 
