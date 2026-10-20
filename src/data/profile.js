@@ -3,7 +3,7 @@ export const profile = {
   name: 'Abhishek Verma',
   shortName: 'Abhishek',
   title: 'Software Engineer',
-  roleSubtitle: 'Java Backend Developer & Financial Systems Specialist',
+  roleSubtitle: 'Fintech Backend Engineer · Java 17 & Distributed Systems',
   company: 'Rapipay Fintech Private Limited',
   location: 'Noida, India',
   email: 'abhishek.verma.6561@gmail.com',
@@ -13,9 +13,9 @@ export const profile = {
   github: 'https://github.com/Pseudo-iitian',
   resume: 'resume.pdf',
   tagline:
-    'Engineering high-concurrency financial microservices, event-driven ledger engines, and ultra-low latency lending systems with Java 17, Spring Boot, Kafka, and PostgreSQL.',
+    'Architecting high-concurrency financial microservices, event-driven ledger engines, and ultra-low latency lending systems with Java 17, Spring Boot, Kafka, and PostgreSQL.',
   summary:
-    'Software Engineer with experience in building scalable financial microservices in the lending domain. Skilled in Java, Spring Boot, REST APIs, Kafka, and PostgreSQL, with hands-on experience in Loan Management Systems (Apache Fineract) across the end-to-end loan lifecycle. Worked on collection and settlement posting using Amazon SQS, UPI/NACH integration, and a rule-based NPA engine. Improved AWS database performance, reducing writer DB utilization from 99% to 5–20%. Strong in event-driven architecture, system design, and distributed systems.',
+    'Software Engineer with deep experience in building scalable financial microservices in the lending domain. Skilled in Java, Spring Boot, REST APIs, Kafka, and PostgreSQL, with hands-on experience in Loan Management Systems (Apache Fineract) across the end-to-end loan lifecycle. Worked on collection and settlement posting using Amazon SQS, UPI/NACH integration, and a rule-based NPA engine. Improved AWS database performance, reducing writer DB utilization from 99% to 5–20%. Strong in event-driven architecture, system design, and distributed systems.',
   education: [
     {
       degree: 'Bachelor of Technology in Computer Science',
@@ -30,30 +30,34 @@ export const profile = {
 export const stats = [
   {
     value: '99% → 5%',
-    label: 'AWS Writer DB Utilization',
-    highlight: 'Slashed from 99% to 5–20% via query optimization & B-tree indexing',
+    label: 'AWS Writer DB Load',
+    highlight: 'Slashed from 99% to 5–20% via query optimization & B-tree indexes',
+    metricType: 'db',
   },
   {
-    value: '7s → 30ms',
+    value: '7s → <30ms',
     label: 'EMI Processing Latency',
     highlight: '99%+ faster with Kafka event-driven microservices',
+    metricType: 'perf',
   },
   {
     value: '100K+',
     label: 'Loan Records Evaluated',
-    highlight: '100% accuracy on RBI-compliant NPA rules',
+    highlight: '100% accuracy on RBI-compliant NPA rules (>90 DPD)',
+    metricType: 'compliance',
   },
   {
     value: '30K+',
-    label: 'Daily UPI/NACH Transactions',
-    highlight: '50% higher adoption via Digio automated presentation',
+    label: 'Daily Payment Txns',
+    highlight: '+50% UPI repayment adoption via automated Digio presentation',
+    metricType: 'scale',
   },
 ]
 
 export const experience = [
   {
     company: 'Rapipay Fintech Private Limited',
-    role: 'Software Engineer',
+    role: 'Software Engineer - Backend & Fintech Systems',
     period: '08/2024 – Present',
     location: 'Noida, India',
     current: true,
@@ -79,4 +83,12 @@ export const experience = [
       'Led technical design talks with the payments team and 3+ financial partners to finalize API contracts, so each integration shipped with clear specs and fewer rework cycles.',
     ],
   },
+]
+
+export const liveTelemetry = [
+  { label: 'System Uptime', value: '99.99%', status: 'nominal' },
+  { label: 'Kafka Event Throughput', value: '50K+ msg/day', status: 'streaming' },
+  { label: 'LMS Processing Time', value: '< 30 ms', status: 'optimal' },
+  { label: 'AWS DB Writer Load', value: '5% - 20%', status: 'healthy' },
+  { label: 'RBI NPA Audit Match', value: '100.0%', status: 'verified' },
 ]

@@ -1,4 +1,4 @@
-// Core Projects directly sourced from /home/abhishek_verma/Desktop/Abhishek_Verma.pdf
+// Core Fintech Projects directly sourced from /home/abhishek_verma/Desktop/Abhishek_Verma.pdf
 
 export const projects = [
   {
@@ -9,7 +9,8 @@ export const projects = [
     metricLabel: '99%+ Faster EMI Processing',
     category: 'Core Lending Architecture',
     featured: true,
-    ghatName: 'Assi Ghat Platform',
+    systemNode: 'Kafka Event Node',
+    badge: 'Flagship Microservice',
     stack: [
       'Java 17',
       'Spring Boot',
@@ -44,9 +45,10 @@ export const projects = [
     tagline: 'Automated due/overdue presentation & high-throughput Kafka recovery pipelines',
     metric: '30K+ Daily Txns',
     metricLabel: '+50% UPI Repayment Adoption',
-    category: 'Payments & Collections Infrastructure',
+    category: 'Payment Rails & Clearing',
     featured: true,
-    ghatName: 'Dashashwamedh Ghat Platform',
+    systemNode: 'Digio Gateway Node',
+    badge: 'High-Throughput Payments',
     stack: ['Java', 'Spring Boot', 'Digio SDKs', 'Apache Kafka', 'PostgreSQL', 'REST APIs'],
     summary:
       'Designed and engineered the end-to-end automated collection and presentation pipeline for recurring e-NACH mandates and real-time UPI debit transactions through Digio.',
@@ -71,10 +73,11 @@ export const projects = [
     title: 'AWS Database Performance Tuning & Query Optimization',
     tagline: 'PostgreSQL execution plan refactoring, B-tree indexing & N+1 eradication',
     metric: '99% → 5–20%',
-    metricLabel: 'Writer DB Utilization Slashed',
+    metricLabel: 'Writer DB Load Slashed',
     category: 'Database & Systems Engineering',
     featured: true,
-    ghatName: 'Manikarnika Ghat Platform',
+    systemNode: 'RDS Master Node',
+    badge: 'System Performance',
     stack: ['PostgreSQL', 'AWS RDS', 'PL/pgSQL', 'B-Tree Indexing', 'Spring Boot'],
     summary:
       'Conducted deep PostgreSQL query profiling and indexing refactoring on mission-critical AWS RDS financial databases containing over 1 million records.',
@@ -102,7 +105,8 @@ export const projects = [
     metricLabel: '100% Rule Compliance Accuracy',
     category: 'Regulatory Banking Engine',
     featured: false,
-    ghatName: 'Panchganga Ghat Platform',
+    systemNode: 'NPA State Machine',
+    badge: 'Banking Compliance',
     stack: ['Java 17', 'Spring Boot', 'PostgreSQL', 'DPD State Engine', 'Apache Fineract'],
     summary:
       'Engineered an automated asset classification engine strictly adhering to Reserve Bank of India (RBI) guidelines for Non-Performing Assets across retail loan portfolios.',
@@ -124,13 +128,14 @@ export const projects = [
   },
   {
     id: 'bikedone-platform',
-    title: 'BikeDone: Mechanic at Your Doorstep',
-    tagline: 'On-demand dispatch engine, STOMP WebSockets & idempotent Razorpay payments',
+    title: 'BikeDone: On-Demand Dispatch & Services Platform',
+    tagline: 'Distributed dispatch engine, STOMP WebSockets & idempotent Razorpay payments',
     metric: '5–25 km Dispatch',
     metricLabel: 'Real-Time STOMP Tracking',
     category: 'Full-Stack Distributed System',
     featured: true,
-    ghatName: 'Harishchandra Ghat Platform',
+    systemNode: 'Dispatch Queue Node',
+    badge: 'Real-Time Concurrency',
     stack: [
       'Java',
       'Spring Boot',
@@ -168,7 +173,8 @@ export const projects = [
     metricLabel: 'Instant NBFC Delivery',
     category: 'Fintech Microservices',
     featured: false,
-    ghatName: 'Kashi Vishwanath Platform',
+    systemNode: 'Settlement Node',
+    badge: 'Multi-Tenant Integration',
     stack: ['Java 17', 'Spring Boot', 'AWS SQS', 'PostgreSQL', 'Docker', 'REST APIs'],
     summary:
       'Engineered a robust collection and settlement posting microservice delivering real-time UTR-confirmed financial records to external NBFC partners.',

@@ -4,7 +4,7 @@ import Hero from './components/Hero'
 import { About, Experience, Skills, Projects, Contact } from './components/Sections'
 import { useReveal } from './hooks/useReveal'
 import ErrorBoundary from './components/ErrorBoundary'
-import FallbackKashiScene from './components/FallbackKashiScene'
+import FallbackFintechScene from './components/FallbackFintechScene'
 import './App.css'
 import './styles/global.css'
 
@@ -33,8 +33,8 @@ function WebGLHelperToast() {
   return (
     <div className="webgl-info-toast">
       <span>
-        🏛️ <strong>Optimized 2.5D Kashi Mode:</strong> Chrome GPU acceleration is currently off.
-        To view interactive 3D, enable <em>"Use graphics acceleration when available"</em> in{' '}
+        ⚡ <strong>Optimized 2D Network Mode:</strong> Chrome GPU acceleration is currently off.
+        To view interactive 3D WebGL core, enable <em>"Use graphics acceleration when available"</em> in{' '}
         <code>chrome://settings/system</code>.
       </span>
       <button
@@ -54,8 +54,8 @@ export default function App() {
   return (
     <>
       <WebGLHelperToast />
-      <ErrorBoundary fallback={<FallbackKashiScene />}>
-        <Suspense fallback={<FallbackKashiScene />}>
+      <ErrorBoundary fallback={<FallbackFintechScene />}>
+        <Suspense fallback={<FallbackFintechScene />}>
           <div className="scene-host">
             <Scene3D />
           </div>

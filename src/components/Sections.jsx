@@ -7,18 +7,18 @@ export function About() {
       <div className="wrap about-grid">
         <div className="reveal">
           <p className="eyebrow">
-            <span className="step-badge">01</span> Assi Ghat Promenade · Profile
+            <span className="step-badge">01</span> Architecture &amp; Domain Focus
           </p>
           <h2 className="section-title">
-            Architecting fault-tolerant <span className="gradient-text-gold">fintech engines</span> and distributed backends.
+            Engineering high-throughput, <span className="gradient-text-cyan">fault-tolerant financial backends</span>.
           </h2>
         </div>
         <div className="reveal about-body">
           <p>{profile.summary}</p>
           <p className="about-current">
-            Currently advancing backend &amp; financial ledger systems at{' '}
-            <strong>{profile.company}</strong> in Noida, engineering real-time Kafka event streams,
-            reducing query latency across datasets of over 1 million records, and automating RBI-aligned compliance.
+            Currently advancing core lending and ledger systems at{' '}
+            <strong>{profile.company}</strong> in Noida, designing asynchronous Kafka event streams,
+            slashing AWS writer database loads from 99% to 5–20%, and automating RBI-aligned lending rules.
           </p>
           <div className="about-edu">
             {profile.education.map((e) => (
@@ -44,11 +44,11 @@ export function Experience() {
       <div className="wrap">
         <div className="reveal section-head">
           <p className="eyebrow">
-            <span className="step-badge">02</span> The Old City · Career Journey
+            <span className="step-badge">02</span> Engineering Trajectory
           </p>
           <h2 className="section-title">Production Experience at Rapipay Fintech</h2>
           <p className="section-lead">
-            Navigating high-concurrency financial microservices, high-volume transactional ledgers, and critical banking partner integrations.
+            Building mission-critical banking integrations, high-concurrency microservices, and automated payment recovery pipelines.
           </p>
         </div>
         <div className="timeline">
@@ -60,7 +60,7 @@ export function Experience() {
                   <div>
                     <h3 className="timeline-role">{x.role}</h3>
                     <div className="timeline-company">
-                      <strong className="gradient-text-gold">{x.company}</strong>
+                      <strong className="gradient-text-emerald">{x.company}</strong>
                       <em> · {x.location}</em>
                       {x.current && <span className="badge badge-active">Current Role</span>}
                     </div>
@@ -94,11 +94,11 @@ export function Skills() {
       <div className="wrap">
         <div className="reveal section-head">
           <p className="eyebrow">
-            <span className="step-badge">03</span> The Engineering Ghats · Capabilities
+            <span className="step-badge">03</span> Technical Capabilities
           </p>
-          <h2 className="section-title">Core Technologies &amp; Architecture Pillars</h2>
+          <h2 className="section-title">Core Technologies &amp; Distributed Systems</h2>
           <p className="section-lead">
-            A battle-tested stack built around Java 17, Spring Boot, distributed messaging, relational databases, and enterprise resilience.
+            Production-tested stack built around Java 17, Spring Boot, distributed messaging, relational databases, and enterprise resilience.
           </p>
         </div>
         <div className="skills-grid">
@@ -134,9 +134,9 @@ export function Projects() {
       <div className="wrap">
         <div className="reveal section-head">
           <p className="eyebrow">
-            <span className="step-badge">04</span> Project Ghats · Engineering Case Studies
+            <span className="step-badge">04</span> Systems Shipped
           </p>
-          <h2 className="section-title">Scalable Systems Shipped to Production</h2>
+          <h2 className="section-title">Production Financial Engineering Case Studies</h2>
           <p className="section-lead">
             In-depth architecture, technical decisions, and verifiable business impact across mission-critical fintech projects.
           </p>
@@ -156,10 +156,10 @@ export function Contact() {
     <section className="section contact" id="contact">
       <div className="wrap contact-inner reveal">
         <p className="eyebrow">
-          <span className="step-badge">05</span> The Final Ghat · Sunset over Ganga
+          <span className="step-badge">05</span> Terminal / Connect
         </p>
         <h2 className="contact-title">
-          Let's build resilient, high-volume <span className="gradient-text-gold">systems together.</span>
+          Let's engineer scalable, resilient <span className="gradient-text-cyan">systems together.</span>
         </h2>
         <p className="section-lead" style={{ margin: '0 auto 2.4rem' }}>
           Open for backend engineering roles, fintech architecture discussions, and distributed systems challenges.
@@ -171,7 +171,7 @@ export function Contact() {
             <h3>{profile.name}</h3>
             <p>{profile.roleSubtitle} · {profile.company}</p>
           </div>
-          <a className="btn btn-gold contact-mail-btn" href={`mailto:${profile.email}`}>
+          <a className="btn btn-emerald contact-mail-btn" href={`mailto:${profile.email}`}>
             ✉ Send Email: {profile.email}
           </a>
         </div>
@@ -198,9 +198,9 @@ export function Contact() {
         </div>
 
         <footer className="footer">
-          <p>© {new Date().getFullYear()} {profile.name} · Miniature Kashi 3D Experience</p>
+          <p>© {new Date().getFullYear()} {profile.name} · Distributed Financial Backend Engineering</p>
           <p className="footer-sub">
-            Built with React 19, Three.js, React Three Fiber, GSAP ScrollTrigger &amp; Vite
+            Built with React 19, Three.js, React Three Fiber, GSAP &amp; Vite
           </p>
         </footer>
       </div>

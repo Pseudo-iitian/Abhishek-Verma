@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react'
 import { profile } from '../data'
 
 const navLinks = [
-  { label: 'Assi Ghat', sub: 'About', href: '#about' },
-  { label: 'Old City', sub: 'Experience', href: '#experience' },
-  { label: 'Engineering Ghats', sub: 'Skills', href: '#skills' },
-  { label: 'Project Ghats', sub: 'Projects', href: '#projects' },
-  { label: 'Final Ghat', sub: 'Contact', href: '#contact' },
+  { label: 'Architecture', sub: '01', href: '#about' },
+  { label: 'Experience', sub: '02', href: '#experience' },
+  { label: 'Tech Stack', sub: '03', href: '#skills' },
+  { label: 'Systems Shipped', sub: '04', href: '#projects' },
+  { label: 'Contact', sub: '05', href: '#contact' },
 ]
 
 export default function Navigation() {
@@ -26,9 +26,14 @@ export default function Navigation() {
           <span className="logo-initials">AV</span>
           <div className="logo-meta">
             <strong>{profile.name}</strong>
-            <em>Kashi 3D · Backend Engineer</em>
+            <em>Fintech Backend Engineer</em>
           </div>
         </a>
+
+        <div className="nav-status-badge">
+          <span className="status-dot-pulse" />
+          <span>Rapipay Fintech · Active</span>
+        </div>
 
         <nav className={`nav-links ${open ? 'open' : ''}`}>
           {navLinks.map((link) => (

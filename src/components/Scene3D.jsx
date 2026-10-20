@@ -3,29 +3,26 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import KashiWorld from './KashiWorld'
-import FallbackKashiScene from './FallbackKashiScene'
+import FintechWorld from './FintechWorld'
+import FallbackFintechScene from './FallbackFintechScene'
 import ErrorBoundary from './ErrorBoundary'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// Camera keyframes corresponding to the 5 Varanasi Ghat locations
+// Camera waypoints moving through the distributed fintech architecture
 const CAMERA_WAYPOINTS = [
-  // Scene 1 — Assi Ghat: Introduction (0–20%)
-  { pos: new THREE.Vector3(9.5, 7.8, -18.5), look: new THREE.Vector3(-4.5, 2.8, -16.5) },
-  // Scene 2 — The Old City: About & Experience (20–40%)
-  { pos: new THREE.Vector3(5.8, 4.4, -6.5), look: new THREE.Vector3(-6.5, 3.2, -5.5) },
-  // Scene 3 — The Engineering Ghats: Skills (40–60%)
-  { pos: new THREE.Vector3(6.5, 5.0, 4.2), look: new THREE.Vector3(-5.2, 3.6, 4.0) },
-  // Scene 4 — Project Ghats: Case Studies (60–85%)
-  { pos: new THREE.Vector3(7.2, 4.6, 14.2), look: new THREE.Vector3(-5.0, 3.2, 13.5) },
-  // Scene 5 — The Final Ghat: Sunset & Contact (85–100%)
-  { pos: new THREE.Vector3(10.5, 7.2, 22.8), look: new THREE.Vector3(-3.5, 3.4, 20.2) },
+  // 1. Overview: Hero & Core Ledger
+  { pos: new THREE.Vector3(0, 0, 7.5), look: new THREE.Vector3(0, 0, 0) },
+  // 2. Trajectory: Rapipay Microservices Panning
+  { pos: new THREE.Vector3(-2.8, 1.4, 6.2), look: new THREE.Vector3(-0.5, 0.2, 0) },
+  // 3. Stack: Distributed Cluster & Database
+  { pos: new THREE.Vector3(2.5, -1.2, 5.8), look: new THREE.Vector3(0.4, -0.2, 0) },
+  // 4. Case Studies: Systems Shipped (LMS, Digio, DB tuning)
+  { pos: new THREE.Vector3(-1.8, -2.2, 6.0), look: new THREE.Vector3(0, -0.6, 0) },
+  // 5. Connect: Panoramic Terminal View
+  { pos: new THREE.Vector3(0, 2.8, 8.2), look: new THREE.Vector3(0, 0, 0) },
 ]
 
-/**
- * Checks if WebGL is actively supported and enabled by the client's GPU driver.
- */
 function isWebGLSupported() {
   if (typeof window === 'undefined') return false
   try {
@@ -47,7 +44,6 @@ function CameraController({ mouseRef }) {
   const currentLook = useRef(CAMERA_WAYPOINTS[0].look.clone())
 
   useEffect(() => {
-    // Setup GSAP scroll trigger mapped to document height
     const st = ScrollTrigger.create({
       trigger: document.body,
       start: 'top top',
@@ -57,10 +53,7 @@ function CameraController({ mouseRef }) {
         scrollProgress.current.value = self.progress
       },
     })
-
-    return () => {
-      st.kill()
-    }
+    return () => st.kill()
   }, [])
 
   useFrame(() => {
@@ -72,17 +65,15 @@ function CameraController({ mouseRef }) {
     const wpA = CAMERA_WAYPOINTS[segment]
     const wpB = CAMERA_WAYPOINTS[segment + 1]
 
-    // Smoothly interpolate desired waypoint
     const targetPos = new THREE.Vector3().lerpVectors(wpA.pos, wpB.pos, segmentProgress)
     const targetLook = new THREE.Vector3().lerpVectors(wpA.look, wpB.look, segmentProgress)
 
-    // Add subtle mouse parallax
-    const mx = (mouseRef.current.x || 0) * 0.7
-    const my = (mouseRef.current.y || 0) * 0.5
+    // Interactive mouse parallax
+    const mx = (mouseRef.current.x || 0) * 0.6
+    const my = (mouseRef.current.y || 0) * 0.4
     targetPos.x += mx
     targetPos.y += my
 
-    // Smooth camera damping
     currentPos.current.lerp(targetPos, 0.08)
     currentLook.current.lerp(targetLook, 0.08)
 
@@ -106,13 +97,12 @@ export default function Scene3D() {
     mouseRef.current.y = -(e.clientY / window.innerHeight - 0.5) * 2
   }
 
-  // Gracefully fallback to animated 2.5D Kashi canvas if browser hardware acceleration is disabled
   if (!hasWebGL) {
-    return <FallbackKashiScene />
+    return <FallbackFintechScene />
   }
 
   return (
-    <ErrorBoundary fallback={<FallbackKashiScene />}>
+    <ErrorBoundary fallback={<FallbackFintechScene />}>
       <div
         onPointerMove={handlePointerMove}
         style={{
@@ -120,11 +110,11 @@ export default function Scene3D() {
           inset: 0,
           zIndex: 0,
           pointerEvents: 'none',
-          background: 'linear-gradient(to bottom, #070913 0%, #111a2e 50%, #1e1327 100%)',
+          background: 'radial-gradient(ellipse at 50% 30%, #081224 0%, #030712 70%, #010308 100%)',
         }}
       >
         <Canvas
-          camera={{ position: [9.5, 7.8, -18.5], fov: 45, near: 0.1, far: 200 }}
+          camera={{ position: [0, 0, 7.5], fov: 48, near: 0.1, far: 100 }}
           dpr={[1, 1.5]}
           gl={{
             antialias: true,
@@ -134,7 +124,7 @@ export default function Scene3D() {
           }}
         >
           <CameraController mouseRef={mouseRef} />
-          <KashiWorld />
+          <FintechWorld mouseRef={mouseRef} />
         </Canvas>
       </div>
     </ErrorBoundary>
