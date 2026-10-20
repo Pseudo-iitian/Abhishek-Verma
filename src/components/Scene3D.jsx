@@ -1,9 +1,11 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import KashiWorld from './KashiWorld'
+import FallbackKashiScene from './FallbackKashiScene'
+import ErrorBoundary from './ErrorBoundary'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -20,6 +22,23 @@ const CAMERA_WAYPOINTS = [
   // Scene 5 — The Final Ghat: Sunset & Contact (85–100%)
   { pos: new THREE.Vector3(10.5, 7.2, 22.8), look: new THREE.Vector3(-3.5, 3.4, 20.2) },
 ]
+
+/**
+ * Checks if WebGL is actively supported and enabled by the client's GPU driver.
+ */
+function isWebGLSupported() {
+  if (typeof window === 'undefined') return false
+  try {
+    const canvas = document.createElement('canvas')
+    const gl =
+      canvas.getContext('webgl2', { failIfMajorPerformanceCaveat: false }) ||
+      canvas.getContext('webgl', { failIfMajorPerformanceCaveat: false }) ||
+      canvas.getContext('experimental-webgl')
+    return !!(window.WebGLRenderingContext && gl)
+  } catch {
+    return false
+  }
+}
 
 function CameraController({ mouseRef }) {
   const { camera } = useThree()
@@ -76,31 +95,48 @@ function CameraController({ mouseRef }) {
 
 export default function Scene3D() {
   const mouseRef = useRef({ x: 0, y: 0 })
+  const [hasWebGL, setHasWebGL] = useState(true)
+
+  useEffect(() => {
+    setHasWebGL(isWebGLSupported())
+  }, [])
 
   const handlePointerMove = (e) => {
     mouseRef.current.x = (e.clientX / window.innerWidth - 0.5) * 2
     mouseRef.current.y = -(e.clientY / window.innerHeight - 0.5) * 2
   }
 
+  // Gracefully fallback to animated 2.5D Kashi canvas if browser hardware acceleration is disabled
+  if (!hasWebGL) {
+    return <FallbackKashiScene />
+  }
+
   return (
-    <div
-      onPointerMove={handlePointerMove}
-      style={{
-        position: 'fixed',
-        inset: 0,
-        zIndex: 0,
-        pointerEvents: 'none',
-        background: 'linear-gradient(to bottom, #070913 0%, #111a2e 50%, #1e1327 100%)',
-      }}
-    >
-      <Canvas
-        camera={{ position: [9.5, 7.8, -18.5], fov: 45, near: 0.1, far: 200 }}
-        dpr={[1, 1.5]}
-        gl={{ antialias: true, alpha: true }}
+    <ErrorBoundary fallback={<FallbackKashiScene />}>
+      <div
+        onPointerMove={handlePointerMove}
+        style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 0,
+          pointerEvents: 'none',
+          background: 'linear-gradient(to bottom, #070913 0%, #111a2e 50%, #1e1327 100%)',
+        }}
       >
-        <CameraController mouseRef={mouseRef} />
-        <KashiWorld />
-      </Canvas>
-    </div>
+        <Canvas
+          camera={{ position: [9.5, 7.8, -18.5], fov: 45, near: 0.1, far: 200 }}
+          dpr={[1, 1.5]}
+          gl={{
+            antialias: true,
+            alpha: true,
+            powerPreference: 'default',
+            failIfMajorPerformanceCaveat: false,
+          }}
+        >
+          <CameraController mouseRef={mouseRef} />
+          <KashiWorld />
+        </Canvas>
+      </div>
+    </ErrorBoundary>
   )
 }
