@@ -21,58 +21,61 @@ export default function Navigation() {
   }, [])
 
   return (
-    <header className={`nav ${scrolled ? 'nav-scrolled' : ''}`}>
-      <div className="wrap nav-inner">
-        <a href="#top" className="nav-logo" onClick={() => setOpen(false)}>
-          <span className="logo-initials">AV</span>
-          <div className="logo-meta">
-            <strong>{profile.name}</strong>
-            <em>Fintech Backend Engineer</em>
+    <>
+      <header className={`nav ${scrolled ? 'nav-scrolled' : ''}`}>
+        <div className="wrap nav-inner">
+          <a href="#top" className="nav-logo" onClick={() => setOpen(false)}>
+            <span className="logo-initials">AV</span>
+            <div className="logo-meta">
+              <strong>{profile.name}</strong>
+              <em>Fintech Backend Engineer</em>
+            </div>
+          </a>
+
+          {/* Status Badge (hidden on small mobile screens to prevent crowding) */}
+          <div className="nav-status-badge desktop-only">
+            <span className="status-dot-pulse" />
+            <span>Rapipay Fintech · Active</span>
           </div>
-        </a>
 
-        {/* Status Badge (hidden on small mobile screens to prevent crowding) */}
-        <div className="nav-status-badge desktop-only">
-          <span className="status-dot-pulse" />
-          <span>Rapipay Fintech · Active</span>
-        </div>
-
-        {/* Navigation Links (Desktop + Mobile Drawer) */}
-        <nav className={`nav-links ${open ? 'open' : ''}`}>
-          {navLinks.map((link) => (
+          {/* Navigation Links (Desktop + Mobile Drawer) */}
+          <nav className={`nav-links ${open ? 'open' : ''}`}>
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="nav-item"
+                onClick={() => setOpen(false)}
+              >
+                <span className="nav-sub">{link.sub}</span>
+                <span className="nav-label">{link.label}</span>
+              </a>
+            ))}
             <a
-              key={link.href}
-              href={link.href}
-              className="nav-item"
+              className="btn btn-outline nav-cta"
+              href={`/${profile.resume}`}
+              target="_blank"
+              rel="noreferrer"
+              download="Abhishek_Verma_Resume.pdf"
               onClick={() => setOpen(false)}
             >
-              <span className="nav-sub">{link.sub}</span>
-              <span className="nav-label">{link.label}</span>
+              Résumé (PDF) ↓
             </a>
-          ))}
-          <a
-            className="btn btn-outline nav-cta"
-            href={`/${profile.resume}`}
-            target="_blank"
-            rel="noreferrer"
-            download="Abhishek_Verma_Resume.pdf"
-            onClick={() => setOpen(false)}
-          >
-            Résumé (PDF) ↓
-          </a>
-        </nav>
+          </nav>
 
-        {/* Hamburger button for mobile */}
-        <button
-          className={`nav-burger ${open ? 'open' : ''}`}
-          onClick={() => setOpen((o) => !o)}
-          aria-label="Toggle navigation menu"
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-      </div>
-    </header>
+          {/* Hamburger button for mobile */}
+          <button
+            className={`nav-burger ${open ? 'open' : ''}`}
+            onClick={() => setOpen((o) => !o)}
+            aria-label="Toggle navigation menu"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </header>
+      {open && <div className="nav-backdrop" onClick={() => setOpen(false)} />}
+    </>
   )
 }

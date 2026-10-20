@@ -6,7 +6,7 @@ export default function ProjectCard({ project }) {
   return (
     <>
       <article
-        className={`card project-card reveal ${project.featured ? 'featured' : ''}`}
+        className={`card project-card ${project.featured ? 'featured' : ''}`}
         onClick={() => setIsOpen(true)}
         style={{ cursor: 'pointer' }}
       >

@@ -5,37 +5,26 @@ import { profile, stats, liveTelemetry } from '../data'
 export default function Hero() {
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.hero-line', {
-        y: 40,
-        opacity: 0,
-        duration: 0.9,
-        stagger: 0.1,
-        ease: 'power3.out',
-        delay: 0.15,
-      })
-      gsap.from('.hero-meta > *', {
-        y: 20,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.08,
-        ease: 'power3.out',
-        delay: 0.65,
-      })
-      gsap.from('.hero-stat', {
-        y: 20,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.08,
-        ease: 'power3.out',
-        delay: 0.85,
-      })
-      gsap.from('.telemetry-strip', {
-        opacity: 0,
-        y: 15,
-        duration: 0.8,
-        ease: 'power2.out',
-        delay: 1.1,
-      })
+      gsap.fromTo(
+        '.hero-line',
+        { y: 20, opacity: 0.3 },
+        { y: 0, opacity: 1, duration: 0.5, stagger: 0.05, ease: 'power2.out', clearProps: 'all' }
+      )
+      gsap.fromTo(
+        '.hero-meta > *',
+        { y: 15, opacity: 0.3 },
+        { y: 0, opacity: 1, duration: 0.4, stagger: 0.04, ease: 'power2.out', clearProps: 'all' }
+      )
+      gsap.fromTo(
+        '.hero-stat',
+        { y: 15, opacity: 0.3 },
+        { y: 0, opacity: 1, duration: 0.4, stagger: 0.04, ease: 'power2.out', clearProps: 'all' }
+      )
+      gsap.fromTo(
+        '.telemetry-strip',
+        { y: 10, opacity: 0.4 },
+        { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out', clearProps: 'all' }
+      )
     })
     return () => ctx.revert()
   }, [])

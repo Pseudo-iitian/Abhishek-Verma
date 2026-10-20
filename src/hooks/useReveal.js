@@ -1,30 +1,29 @@
 import { useEffect } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger)
-
-// Animates every .reveal element into view on scroll using GSAP ScrollTrigger.
+/**
+ * Safe, progressive scroll reveal without ever hiding dynamic cards or breaking filtered state.
+ */
 export function useReveal() {
   useEffect(() => {
-    const els = gsap.utils.toArray('.reveal')
-    const triggers = els.map((el) =>
-      gsap.fromTo(
-        el,
-        { opacity: 0, y: 34 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: el, start: 'top 88%', once: true },
-        }
-      )
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.08 }
     )
-    const t = setTimeout(() => ScrollTrigger.refresh(), 300)
-    return () => {
-      clearTimeout(t)
-      triggers.forEach((tw) => tw.scrollTrigger && tw.scrollTrigger.kill())
-    }
+
+    const els = document.querySelectorAll(
+      '.section-head-box, .about-panel, .contact-head-box, .education-card'
+    )
+    els.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
   }, [])
 }
