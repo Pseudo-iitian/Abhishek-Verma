@@ -1,9 +1,10 @@
 import { Suspense, lazy } from 'react'
-import Nav from './components/Nav'
+import Navigation from './components/Navigation'
 import Hero from './components/Hero'
-import { About, Expertise, Experience, Projects, Achievements, Contact } from './components/Sections'
-import { useReveal } from './useReveal'
+import { About, Experience, Skills, Projects, Contact } from './components/Sections'
+import { useReveal } from './hooks/useReveal'
 import './App.css'
+import './styles/global.css'
 
 const Scene3D = lazy(() => import('./components/Scene3D'))
 
@@ -18,14 +19,13 @@ export default function App() {
       </Suspense>
       <div className="bg-grid" />
       <div className="bg-vignette" />
-      <Nav />
+      <Navigation />
       <main className="content">
         <Hero />
         <About />
-        <Expertise />
         <Experience />
+        <Skills />
         <Projects />
-        <Achievements />
         <Contact />
       </main>
     </>

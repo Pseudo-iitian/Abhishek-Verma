@@ -1,18 +1,16 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import gsap from 'gsap'
 import { profile, stats } from '../data'
 
 export default function Hero() {
-  const rolesRef = useRef(null)
-
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from('.hero-line', {
-        y: 60,
+        y: 45,
         opacity: 0,
         duration: 1,
         stagger: 0.12,
-        ease: 'power4.out',
+        ease: 'power3.out',
         delay: 0.2,
       })
       gsap.from('.hero-meta > *', {
@@ -21,15 +19,15 @@ export default function Hero() {
         duration: 0.8,
         stagger: 0.08,
         ease: 'power3.out',
-        delay: 0.9,
+        delay: 0.8,
       })
       gsap.from('.hero-stat', {
-        y: 24,
+        y: 25,
         opacity: 0,
         duration: 0.8,
         stagger: 0.1,
         ease: 'power3.out',
-        delay: 1.2,
+        delay: 1.1,
       })
     })
     return () => ctx.revert()
@@ -38,35 +36,58 @@ export default function Hero() {
   return (
     <section className="hero" id="top">
       <div className="wrap hero-inner">
-        <p className="eyebrow hero-line">{profile.location}</p>
+        <div className="eyebrow hero-line">
+          <span className="location-pin">📍</span> {profile.location} · Assi Ghat (Kashi)
+        </div>
+
         <h1 className="hero-title">
-          <span className="hero-line">Syed Jawad</span>
-          <span className="hero-line gradient-text">Haider Rizvi</span>
+          <span className="hero-line">{profile.name}</span>
+          <span className="hero-line gradient-text-gold">{profile.roleSubtitle}</span>
         </h1>
-        <div className="hero-roles hero-line" ref={rolesRef}>
-          {profile.roles.map((r, i) => (
-            <span key={r} className="role-chip">
-              {r}
-              {i < profile.roles.length - 1 && <i>•</i>}
-            </span>
-          ))}
+
+        <div className="hero-roles hero-line">
+          <span className="role-chip">Java 17 / 21 <i>•</i></span>
+          <span className="role-chip">Spring Boot <i>•</i></span>
+          <span className="role-chip">Apache Kafka <i>•</i></span>
+          <span className="role-chip">PostgreSQL <i>•</i></span>
+          <span className="role-chip">Fintech Microservices</span>
         </div>
-        <p className="hero-tagline hero-line">{profile.tagline}</p>
+
+        <p className="hero-tagline hero-line">
+          {profile.tagline}
+        </p>
+
         <div className="hero-meta">
-          <a className="btn btn-primary" href="#work">View My Work →</a>
-          <a className="btn btn-ghost" href="#contact">Let's Talk</a>
+          <a className="btn btn-primary" href="#projects">
+            Explore Project Ghats →
+          </a>
+          <a
+            className="btn btn-gold"
+            href={`/${profile.resume}`}
+            target="_blank"
+            rel="noreferrer"
+            download="Abhishek_Verma_Resume.pdf"
+          >
+            Download Résumé (PDF) ↓
+          </a>
+          <a className="btn btn-ghost" href="#contact">
+            Get in Touch
+          </a>
         </div>
+
         <div className="hero-stats">
           {stats.map((s) => (
-            <div className="hero-stat" key={s.label}>
-              <div className="hero-stat-value gradient-text">{s.value}</div>
+            <div className="hero-stat card" key={s.label}>
+              <div className="hero-stat-value gradient-text-gold">{s.value}</div>
               <div className="hero-stat-label">{s.label}</div>
+              <div className="hero-stat-sub">{s.highlight}</div>
             </div>
           ))}
         </div>
       </div>
+
       <div className="hero-scroll">
-        <span>SCROLL</span>
+        <span>SCROLL ALONG THE GHATS</span>
         <div className="hero-scroll-line" />
       </div>
     </section>
