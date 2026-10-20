@@ -201,28 +201,23 @@ export function Skills() {
 }
 
 /**
- * 05 / PROJECTS SECTION (With Date Sorting and Category Filters!)
+ * 05 / PROJECTS SECTION (Simplified, Clean, Date-Sorted & Tabbed)
  */
 export function Projects() {
   const [sortOrder, setSortOrder] = useState('newest') // 'newest' | 'oldest'
-  const [filterCategory, setFilterCategory] = useState('all') // 'all' | 'fintech' | 'ai-fullstack' | 'algorithms'
+  const [filterCategory, setFilterCategory] = useState('all') // 'all' | 'fintech' | 'opensource'
 
   const categories = [
     { id: 'all', label: 'All Projects', count: projects.length },
     {
       id: 'fintech',
-      label: 'Fintech & Banking',
+      label: '🏢 Rapipay Fintech',
       count: projects.filter((p) => p.categoryType === 'fintech').length,
     },
     {
-      id: 'ai-fullstack',
-      label: 'Full-Stack & AI',
-      count: projects.filter((p) => p.categoryType === 'ai-fullstack').length,
-    },
-    {
-      id: 'algorithms',
-      label: 'Algorithms & ML',
-      count: projects.filter((p) => p.categoryType === 'algorithms').length,
+      id: 'opensource',
+      label: '🐙 Open Source & GitHub',
+      count: projects.filter((p) => p.categoryType === 'opensource').length,
     },
   ]
 
@@ -249,22 +244,23 @@ export function Projects() {
   return (
     <section className="section" id="projects">
       <div className="wrap">
-        <div className="section-head-box card reveal">
+        <div className="section-head-box card">
           <p className="eyebrow">
             <span className="step-badge">05</span> Systems Shipped
           </p>
           <h2 className="section-title">Technical Projects &amp; Open Source</h2>
           <p className="section-lead">
-            Production microservices, full-stack systems, algorithmic platforms, and open-source GitHub repositories.
+            Production fintech microservices from Rapipay, plus open-source algorithms, full-stack systems, and AI automation.
           </p>
         </div>
 
-        {/* Project Controls: Category Filters & Date Sorting */}
-        <div className="project-controls-bar card reveal">
+        {/* Project Controls: Simplified Category Filters & Date Sorting */}
+        <div className="project-controls-bar card">
           <div className="category-filters">
             {categories.map((cat) => (
               <button
                 key={cat.id}
+                type="button"
                 className={`filter-btn ${filterCategory === cat.id ? 'active' : ''}`}
                 onClick={() => setFilterCategory(cat.id)}
               >
@@ -274,13 +270,14 @@ export function Projects() {
           </div>
 
           <div className="sort-controls">
-            <span className="sort-label">Sort by Date:</span>
+            <span className="sort-label">Sort by:</span>
             <button
-              className={`sort-toggle-btn ${sortOrder === 'newest' ? 'active' : ''}`}
+              type="button"
+              className="sort-toggle-btn active"
               onClick={() => setSortOrder(sortOrder === 'newest' ? 'oldest' : 'newest')}
               title="Click to toggle sorting"
             >
-              {sortOrder === 'newest' ? 'Newest First ↓' : 'Oldest First ↑'}
+              📅 {sortOrder === 'newest' ? 'Newest First ↓' : 'Oldest First ↑'}
             </button>
           </div>
         </div>

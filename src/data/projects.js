@@ -1,19 +1,18 @@
-// Projects data including GitHub repositories and enterprise production microservices
+// Simplified & Standardized Projects Data (Enterprise Fintech + Open Source Repositories)
 
 export const projects = [
   {
     id: 'job-apply-app',
     title: 'JobApplyApp — AI Automated Job Hunter & ATS',
-    tagline: 'Autonomous 24/7 background job discovery, multi-tier LLM evaluation & 1-click autofill',
-    metric: '< 300ms Match',
-    metricLabel: 'Groq + Gemini AI Inference',
-    category: 'AI & Distributed Systems',
-    categoryType: 'ai-fullstack',
+    source: 'Open Source / GitHub',
+    categoryType: 'opensource',
     date: '2026-10',
     dateDisplay: 'Oct 2026',
-    featured: true,
-    systemNode: 'AI Agent Node',
-    badge: 'AI & Automation',
+    metric: '< 300ms Match',
+    metricLabel: 'Groq + Gemini AI Inference',
+    shortDesc:
+      'Autonomous 24/7 background job discovery with Groq AI evaluation, Gemini resume tailoring, Jira-style Kanban, and 1-click Chrome autofill.',
+    keyStack: ['Python', 'FastAPI', 'React', 'Groq AI', 'Chrome Extension'],
     stack: [
       'Python',
       'FastAPI',
@@ -25,8 +24,6 @@ export const projects = [
       'Chrome Extension',
       'Docker',
     ],
-    summary:
-      'Engineered an intelligent, full-stack automated job application and applicant tracking system (ATS) with 24/7 autonomous hunting daemon, Jira-style Kanban, real-time WebSockets, and 1-Click Chrome autofill.',
     problem:
       'Job hunting across fragmented portals is highly repetitive and slow, requiring manual tracking across spreadsheets, custom resume tweaking, and filling repetitive external job application forms.',
     architecture:
@@ -47,16 +44,15 @@ export const projects = [
   {
     id: 'lms-los-engine',
     title: 'Loan Origination & Management System (LMS / LOS)',
-    tagline: 'High-throughput event-driven lending microservices & Apache Fineract integration',
-    metric: '7s → <30ms',
-    metricLabel: '99%+ Faster EMI Processing',
-    category: 'Core Lending Architecture',
+    source: 'Rapipay Fintech',
     categoryType: 'fintech',
     date: '2026-04',
     dateDisplay: 'Apr 2026',
-    featured: true,
-    systemNode: 'Kafka Event Node',
-    badge: 'Flagship Microservice',
+    metric: '7s → <30ms',
+    metricLabel: '99%+ Faster EMI Processing',
+    shortDesc:
+      'Re-architected loan EMI calculation and repayment workflows from slow batch jobs into distributed Kafka event-driven microservices.',
+    keyStack: ['Java 17', 'Spring Boot', 'Apache Kafka', 'Spring Batch', 'Apache Fineract'],
     stack: [
       'Java 17',
       'Spring Boot',
@@ -66,8 +62,6 @@ export const projects = [
       'Apache Fineract',
       'PostgreSQL',
     ],
-    summary:
-      'Re-architected EMI processing and repayment workflows from slow synchronous batch jobs into an asynchronous event-driven microservice system powered by Apache Kafka and Spring Batch.',
     problem:
       'Legacy synchronous EMI calculations caused massive transaction timeouts, taking upwards of 7 seconds per loan schedule and leading to severe database deadlocks during month-end collection bursts.',
     architecture:
@@ -87,17 +81,16 @@ export const projects = [
   },
   {
     id: 'bikedone-platform',
-    title: 'BikeDone: On-Demand Dispatch & Mechanic Services',
-    tagline: 'Distributed dispatch engine, STOMP WebSockets & idempotent Razorpay payments',
-    metric: '5–25 km Dispatch',
-    metricLabel: 'Real-Time STOMP Tracking',
-    category: 'Full-Stack Distributed System',
-    categoryType: 'ai-fullstack',
+    title: 'BikeDone — On-Demand Mechanic Dispatch Platform',
+    source: 'Open Source / GitHub',
+    categoryType: 'opensource',
     date: '2025-11',
     dateDisplay: 'Nov 2025',
-    featured: true,
-    systemNode: 'Dispatch Queue Node',
-    badge: 'Real-Time Concurrency',
+    metric: '5–25 km',
+    metricLabel: 'Real-Time Dynamic Dispatch',
+    shortDesc:
+      'Roadside assistance and mechanic dispatch system featuring AWS SQS geo-radius matching, STOMP WebSockets, and idempotent Razorpay payments.',
+    keyStack: ['Java 17', 'Spring Boot', 'PostgreSQL', 'AWS SQS', 'STOMP WebSockets'],
     stack: [
       'Java 17',
       'Spring Boot',
@@ -108,8 +101,6 @@ export const projects = [
       'WebSocket (STOMP)',
       'Firebase / SNS',
     ],
-    summary:
-      'Engineered an on-demand roadside assistance and vehicle service dispatch system featuring real-time mechanic assignment, live tracking, and secure digital payments.',
     problem:
       'Locating trustworthy two-wheeler mechanics during breakdowns suffered from manual phone calls, no geographic visibility, untracked pricing, and payment fraud.',
     architecture:
@@ -129,20 +120,17 @@ export const projects = [
   },
   {
     id: 'digio-upi-nach',
-    title: 'UPI & e-NACH Collection Integration with Digio',
-    tagline: 'Automated due/overdue presentation & high-throughput Kafka recovery pipelines',
-    metric: '30K+ Daily Txns',
-    metricLabel: '+50% UPI Repayment Adoption',
-    category: 'Payment Rails & Clearing',
+    title: 'UPI & e-NACH Payment Integration with Digio',
+    source: 'Rapipay Fintech',
     categoryType: 'fintech',
     date: '2025-08',
     dateDisplay: 'Aug 2025',
-    featured: false,
-    systemNode: 'Digio Gateway Node',
-    badge: 'High-Throughput Payments',
-    stack: ['Java', 'Spring Boot', 'Digio SDKs', 'Apache Kafka', 'PostgreSQL', 'REST APIs'],
-    summary:
-      'Designed and engineered the end-to-end automated collection and presentation pipeline for recurring e-NACH mandates and real-time UPI debit transactions through Digio.',
+    metric: '30K+ Daily',
+    metricLabel: '+50% UPI Repayment Adoption',
+    shortDesc:
+      'Automated collection presentation pipeline for recurring e-NACH mandates and real-time UPI debit transactions through Digio SDKs.',
+    keyStack: ['Java 17', 'Spring Boot', 'Apache Kafka', 'Digio SDKs', 'PostgreSQL'],
+    stack: ['Java 17', 'Spring Boot', 'Digio SDKs', 'Apache Kafka', 'PostgreSQL', 'REST APIs'],
     problem:
       'Borrower repayment collections were reliant on manual reminders and fragmented payment links, causing high bounce rates, delayed reconciliation, and missed banking clearing cycles.',
     architecture:
@@ -162,26 +150,16 @@ export const projects = [
   {
     id: 'splitwise-platform',
     title: 'Splitwise — Expense Settlement & Debt Simplification',
-    tagline: 'Multi-party expense sharing, bill splitting & graph-based debt minimization algorithm',
-    metric: 'Graph Algorithm',
-    metricLabel: 'Min Cash Flow Settlements',
-    category: 'Algorithms & Full-Stack',
-    categoryType: 'algorithms',
+    source: 'Open Source / GitHub',
+    categoryType: 'opensource',
     date: '2025-05',
     dateDisplay: 'May 2025',
-    featured: false,
-    systemNode: 'Ledger Engine Node',
-    badge: 'Graph Algorithms',
-    stack: [
-      'Node.js',
-      'Express',
-      'MongoDB',
-      'React',
-      'Graph Theory',
-      'REST APIs',
-    ],
-    summary:
-      'Built a full-stack expense sharing application implementing the Min-Cash-Flow graph algorithm to eliminate circular debts and minimize total settlement transactions across groups.',
+    metric: 'Graph Algorithm',
+    metricLabel: 'Min Cash Flow Settlements',
+    shortDesc:
+      'Full-stack bill splitting app using the Min-Cash-Flow graph algorithm to eliminate circular debts and minimize total settlement transactions.',
+    keyStack: ['React', 'Node.js', 'Express', 'MongoDB', 'Graph Theory'],
+    stack: ['React', 'Node.js', 'Express', 'MongoDB', 'Graph Theory', 'REST APIs'],
     problem:
       'Group travel and room sharing creates messy entangled debts where multiple people owe each other unequal amounts, causing confusion and dozens of unnecessary pairwise transactions.',
     architecture:
@@ -201,19 +179,16 @@ export const projects = [
   {
     id: 'aws-db-optimization',
     title: 'AWS Database Performance Tuning & Query Optimization',
-    tagline: 'PostgreSQL execution plan refactoring, B-tree indexing & N+1 eradication',
-    metric: '99% → 5–20%',
-    metricLabel: 'Writer DB Load Slashed',
-    category: 'Database & Systems Engineering',
+    source: 'Rapipay Fintech',
     categoryType: 'fintech',
     date: '2025-02',
     dateDisplay: 'Feb 2025',
-    featured: true,
-    systemNode: 'RDS Master Node',
-    badge: 'System Performance',
+    metric: '99% → 5–20%',
+    metricLabel: 'Writer DB Load Slashed',
+    shortDesc:
+      'Deep PostgreSQL execution plan profiling, composite B-tree indexing, and N+1 query eradication on AWS RDS databases with 1M+ records.',
+    keyStack: ['PostgreSQL', 'AWS RDS', 'B-Tree Indexing', 'PL/pgSQL', 'Spring Boot'],
     stack: ['PostgreSQL', 'AWS RDS', 'PL/pgSQL', 'B-Tree Indexing', 'Spring Boot'],
-    summary:
-      'Conducted deep PostgreSQL query profiling and indexing refactoring on mission-critical AWS RDS financial databases containing over 1 million records.',
     problem:
       'AWS RDS writer database utilization consistently spiked to dangerous 99% levels during peak hours due to unindexed foreign keys, slow joins, and severe ORM N+1 query loops.',
     architecture:
@@ -233,19 +208,16 @@ export const projects = [
   {
     id: 'npa-classification-engine',
     title: 'RBI-Compliant Rule-Based NPA Engine',
-    tagline: 'Automated Days Past Due (DPD) evaluation & principal-first recovery routing',
-    metric: '100,000+ Records',
-    metricLabel: '100% Rule Compliance Accuracy',
-    category: 'Regulatory Banking Engine',
+    source: 'Rapipay Fintech',
     categoryType: 'fintech',
     date: '2024-11',
     dateDisplay: 'Nov 2024',
-    featured: false,
-    systemNode: 'NPA State Machine',
-    badge: 'Banking Compliance',
+    metric: '100K+ / Day',
+    metricLabel: '100% RBI DPD Rule Compliance',
+    shortDesc:
+      'Automated loan classification engine evaluating 100K+ records daily against RBI DPD rules with principal-first recovery routing.',
+    keyStack: ['Java 17', 'Spring Boot', 'PostgreSQL', 'DPD State Engine', 'Apache Fineract'],
     stack: ['Java 17', 'Spring Boot', 'PostgreSQL', 'DPD State Engine', 'Apache Fineract'],
-    summary:
-      'Engineered an automated asset classification engine strictly adhering to Reserve Bank of India (RBI) guidelines for Non-Performing Assets across retail loan portfolios.',
     problem:
       'Lending regulations mandate strict DPD categorization: accounts over 90 DPD must be classified as NPA, and all subsequent recovery collections must route straight to principal before interest.',
     architecture:
@@ -265,19 +237,16 @@ export const projects = [
   {
     id: 'nbfc-settlement-engine',
     title: 'Configurable Settlement & Collection Posting Engine',
-    tagline: 'Multi-partner NBFC financial clearing with instant REST API delivery',
-    metric: '50K+ Records',
-    metricLabel: 'Instant NBFC Delivery',
-    category: 'Fintech Microservices',
+    source: 'Rapipay Fintech',
     categoryType: 'fintech',
     date: '2024-09',
     dateDisplay: 'Sep 2024',
-    featured: false,
-    systemNode: 'Settlement Node',
-    badge: 'Multi-Tenant Integration',
+    metric: '70% Faster',
+    metricLabel: 'Partner Integration TAT',
+    shortDesc:
+      'Multi-partner NBFC settlement posting microservice delivering real-time UTR-confirmed financial clearing with instant REST API delivery.',
+    keyStack: ['Java 17', 'Spring Boot', 'AWS SQS', 'PostgreSQL', 'REST APIs'],
     stack: ['Java 17', 'Spring Boot', 'AWS SQS', 'PostgreSQL', 'Docker', 'REST APIs'],
-    summary:
-      'Engineered a robust collection and settlement posting microservice delivering real-time UTR-confirmed financial records to external NBFC partners.',
     problem:
       'Financial partners demanded custom payload formats, strict acknowledgment SLAs, and instant UTR reconciliation which previously caused weeks of custom development per partner.',
     architecture:
@@ -297,16 +266,15 @@ export const projects = [
   {
     id: 'dyslexia-prediction-model',
     title: 'Dyslexia Prediction Model — Machine Learning Classifier',
-    tagline: 'Early diagnostic classification based on language, acoustic, and cognitive assessment metrics',
-    metric: '92.4% Accuracy',
-    metricLabel: 'Supervised ML Classifier',
-    category: 'Machine Learning & Data Science',
-    categoryType: 'algorithms',
+    source: 'Open Source / GitHub',
+    categoryType: 'opensource',
     date: '2024-05',
     dateDisplay: 'May 2024',
-    featured: false,
-    systemNode: 'ML Inference Node',
-    badge: 'Machine Learning',
+    metric: '92.4% Accuracy',
+    metricLabel: 'Supervised ML Benchmark',
+    shortDesc:
+      'Early diagnostic machine learning screening pipeline predicting dyslexia risk based on phonological and cognitive assessment metrics.',
+    keyStack: ['Python', 'Scikit-Learn', 'XGBoost', 'Pandas', 'Flask'],
     stack: [
       'Python',
       'Scikit-Learn',
@@ -316,8 +284,6 @@ export const projects = [
       'Matplotlib',
       'Flask',
     ],
-    summary:
-      'Developed a machine learning classification pipeline designed to screen and predict dyslexia risk in students using behavioral, phonological, and cognitive test scores.',
     problem:
       'Traditional dyslexia evaluations are costly, require manual clinical visits, and are often administered late in childhood after learning deficits have already accumulated.',
     architecture:
